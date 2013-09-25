@@ -29,7 +29,7 @@ void draw () {
   { 
     slopeY = slopeY*(-1);
   }
-  xP = xP + slopeX; //make the ball move ~ ZHOU ~ code runs into problems here! ****[cannot covert from float to int]???
+  xP = xP + slopeX; //to make the ball move  ***ZHOU ~ code runs into problems here*** error: [cannot covert from float to int]???
   yP = yP + slopeY;
     }
   }
