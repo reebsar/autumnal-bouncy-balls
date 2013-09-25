@@ -1,6 +1,11 @@
 int r = 50;
 
 
+float slopeX = random(1, 5);
+float slopeY = random(1, 5);
+float xP = random(50, 750);
+float yP = random(50, 550);
+
 void setup() {
   size(800, 600);
   noStroke();
@@ -9,25 +14,22 @@ void setup() {
 
 
 void draw () {
-
+  background (#7F655A); //muave background refreshes each time
   fill(color(random(204, 255), random(41, 134), random(0, 76))); //autumnal colors!
-
-  for (int xP=75; xP < width ; xP=xP+50) {
-    for (int yP=75; yP < height ; yP= yP + 50) { //anticipating  many different balls on the screen
-      background (#7F655A); //muave background refreshes each time
-      float slopeX = random(1, 5); //horizontal speed of the ball is between 1 and 5 
-      float slopeY = random (1, 5); //vertical speed of the ball
-      xP = xP + slopeX; //make the ball move ~ ZHOU ~ code runs into problems here! ****[cannot covert from float to int]???
-      yP = yP + slopeY;
+  
+  
+  for (int xP=50; xP < width ; xP=xP+150) {
+    for (int yP=50; yP < height ; yP= yP + 150) { //anticipating  many different balls on the screen
       ellipse (xP, yP, r, r); //draw the balls
-      if (xP <= width - (r/2) || xP >= (r/2)) //if the ball hits screen's edge on X-axis then reverse its slope
-      { 
-        slopeX = slopeX*(-1);
-      }
-      if (yP <= height - (r/2) || yP >= (r/2)) //if the ball hits the screen's top or bottom on Y-axis then reverse its slope
-      { 
-        slopeY = slopeY*(-1);
-      }
+      if (xP >= width - (r/2) || xP <= (r/2)) //if the ball hits screen's edge on X-axis then reverse its slope
+  { 
+    slopeX = slopeX*(-1);
+  }
+  if (yP >= height - (r/2) || yP <= (r/2)) //if the ball hits the screen's top or bottom on Y-axis then reverse its slope
+  { 
+    slopeY = slopeY*(-1);
+  }
+  xP = xP + slopeX; //make the ball move ~ ZHOU ~ code runs into problems here! ****[cannot covert from float to int]???
+  yP = yP + slopeY;
     }
   }
-}
