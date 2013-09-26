@@ -1,0 +1,95 @@
+int r = 50; //radius
+
+//ball 1 (x,y)
+float slopeX = random(1, 5);
+float slopeY = random(1, 5);
+float xP = random(50, 750);
+float yP = random(50, 550);
+//ball 2 (s,t)
+float slopeS = random(1, 5);
+float slopeT = random(1, 5);
+float sP = random(50, 750);
+float tP = random(50, 550);
+//ball 3 (a,b)
+float slopeA = random(1, 5);
+float slopeB = random(1, 5);
+float aP = random(50, 750);
+float bP = random(50, 550);
+//ball 4 (p,q)
+float slopeP = random(1, 5);
+float slopeQ = random(1, 5);
+float pP = random(50, 750);
+float qP = random(50, 550);
+color ballColor;
+
+void setup() {
+  size(800, 600);
+  noStroke();
+  smooth();
+    ballColor= color(random(204, 255), random(41, 134), random(0, 76));
+}
+
+
+void draw () {
+  background (#7F655A);
+  xP = xP + slopeX; //make the ball move ~ ZHOU ~ code runs into problems here! ****[cannot covert from float to int]???
+  yP = yP + slopeY;
+
+
+  //ball 1
+ fill(color(ballColor));//autumnal colors
+
+  ellipse (xP, yP, r, r);
+
+  if (xP >= width - (r/2) || xP <= (r/2)) //if the ball hits screen's edge on X-axis then reverse its slope
+  { 
+    slopeX = slopeX*(-1);
+  }
+  if (yP >= height - (r/2) || yP <= (r/2)) //if the ball hits the screen's top or bottom on Y-axis then reverse its slope
+  { 
+    slopeY = slopeY*(-1);
+  }
+
+  //ball 2
+
+  sP = sP + slopeS; //make the ball move ~ ZHOU ~ code runs into problems here! ****[cannot covert from float to int]???
+  tP = tP + slopeT;
+  ellipse (sP, tP, r, r);
+
+  if (sP >= width - (r/2) || sP <= (r/2)) //if the ball hits screen's edge on X-axis then reverse its slope
+  { 
+    slopeS = slopeS*(-1);
+  }
+  if (tP >= height - (r/2) || tP <= (r/2)) //if the ball hits the screen's top or bottom on Y-axis then reverse its slope
+  { 
+    slopeT = slopeT*(-1);
+  }
+  
+  //ball 3
+
+  aP = aP + slopeA; //make the ball move ~ ZHOU ~ code runs into problems here! ****[cannot covert from float to int]???
+  bP = bP + slopeB;
+  ellipse (aP, bP, r, r);
+
+  if (aP >= width - (r/2) || aP <= (r/2)) //if the ball hits screen's edge on X-axis then reverse its slope
+  { 
+    slopeA = slopeA*(-1);
+  }
+  if (bP >= height - (r/2) || bP <= (r/2)) //if the ball hits the screen's top or bottom on Y-axis then reverse its slope
+  { 
+    slopeB = slopeB*(-1);
+  }
+  //ball 4
+
+  pP = pP + slopeP; //make the ball move ~ ZHOU ~ code runs into problems here! ****[cannot covert from float to int]???
+  qP = qP + slopeQ;
+  ellipse (pP, qP, r, r);
+
+  if (pP >= width - (r/2) || pP <= (r/2)) //if the ball hits screen's edge on X-axis then reverse its slope
+  { 
+    slopeP = slopeP*(-1);
+  }
+  if (qP >= height - (r/2) || qP <= (r/2)) //if the ball hits the screen's top or bottom on Y-axis then reverse its slope
+  { 
+    slopeQ = slopeQ*(-1);}
+}
